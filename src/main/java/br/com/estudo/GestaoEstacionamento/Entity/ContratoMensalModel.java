@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ContratoMensal {
+public class ContratoMensalModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

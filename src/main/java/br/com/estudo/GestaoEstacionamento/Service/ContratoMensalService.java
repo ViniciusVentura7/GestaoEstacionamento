@@ -1,6 +1,6 @@
 package br.com.estudo.GestaoEstacionamento.Service;
 
-import br.com.estudo.GestaoEstacionamento.Entity.ContratoMensal;
+import br.com.estudo.GestaoEstacionamento.Entity.ContratoMensalModel;
 import br.com.estudo.GestaoEstacionamento.Repository.ContratoMensalRepository;
 import org.springframework.stereotype.Service;
 
@@ -15,20 +15,20 @@ public class ContratoMensalService {
         this.contratoMensalRepository = contratoMensalRepository;
     }
 
-    public ContratoMensal adicionarContratoMensal(ContratoMensal novoContrato){
+    public ContratoMensalModel adicionarContratoMensal(ContratoMensalModel novoContrato){
         return contratoMensalRepository.save(novoContrato);
     }
 
-    public List<ContratoMensal> buscarContrato(){
+    public List<ContratoMensalModel> buscarContrato(){
         return contratoMensalRepository.findAll();
     }
 
-    public Optional<ContratoMensal> buscarContratoPorId(Long id){
+    public Optional<ContratoMensalModel> buscarContratoPorId(Long id){
         return contratoMensalRepository.findById(id);
     }
 
-    public ContratoMensal atualizarContrato(Long id, ContratoMensal contratoAtualizado){
-        ContratoMensal contrato = contratoMensalRepository.findById(id).orElseThrow(() -> new RuntimeException("Contrato mensalista de ID: " + id + ", não encontrado!"));
+    public ContratoMensalModel atualizarContrato(Long id, ContratoMensalModel contratoAtualizado){
+        ContratoMensalModel contrato = contratoMensalRepository.findById(id).orElseThrow(() -> new RuntimeException("Contrato mensalista de ID: " + id + ", não encontrado!"));
         contrato.setUsuario(contratoAtualizado.getUsuario());
         contrato.setVencimento(contratoAtualizado.getVencimento());
         contrato.setStatusContrato(contratoAtualizado.getStatusContrato());
